@@ -47,11 +47,23 @@
     cell.thumbnail.image = [UIImage imageNamed:@"pasta.jpg"];
     cell.prepTime.text = @"30 mins";
     
-    //ABC
-    
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Row selected" message:[tableData objectAtIndex:indexPath.row] preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okay = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:okay];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 78;
+}
 
 
 
